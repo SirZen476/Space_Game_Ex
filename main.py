@@ -18,8 +18,13 @@ surf.fill('orange')
 # import images
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
-player_dir = pygame.math.Vector2(1,1)
-player_speed = 300
+player_speed = 250
+player_dir = []
+player_dir.append(pygame.math.Vector2(0,1))#down index 0
+player_dir.append(pygame.math.Vector2(1,0))# right 1
+player_dir.append(pygame.math.Vector2(0,-1))# up 2
+player_dir.append(pygame.math.Vector2(-1,0))# left 3
+
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (window_width/2,window_height-200))
@@ -38,18 +43,30 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_DOWN and player_rect.bottom < window_height:
+                player_rect.center += player_dir[0] * player_speed * dt
+            if event.key == pygame.K_RIGHT and player_rect.right < window_width:
+                player_rect.center += player_dir[1] * player_speed * dt
+            if event.key == pygame.K_UP and player_rect.top > 0:
+                player_rect.center += player_dir[2] * player_speed * dt
+            if event.key == pygame.K_LEFT and player_rect.left > 0:
+                player_rect.center += player_dir[3] * player_speed * dt
+
+
 
     #draw game
     screen.fill('azure3')#fill with blue color
     for pos in star_pos :
         screen.blit(star_surf,pos)
     #random x and y movement
+    '''
     player_rect.center += player_dir * player_speed * dt# player movment with vector
     if player_rect.right > window_width or player_rect.left < 0:
         player_dir[0] *= -1
     if player_rect.top < 0 or player_rect.bottom > window_height:
         player_dir[1] *= -1
-
+    '''
     screen.blit(player_surf,player_rect)
     screen.blit(laser_surf,laser_rect)
     screen.blit(meteor_surf,meteor_rect)
