@@ -15,13 +15,11 @@ clock =pygame.time.Clock()  # control framerate, control
 FPS_target = 99
 surf = pygame.Surface((100,200))
 surf.fill('orange')
-x = 100
-y = 200
 # import images
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
-player_speed = pygame.math.Vector2(5,5)
-
+player_dir = pygame.math.Vector2(1,1)
+player_speed = 5
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (window_width/2,window_height-200))
@@ -46,11 +44,11 @@ while running:
     for pos in star_pos :
         screen.blit(star_surf,pos)
     #random x and y movement
-    player_rect.center += player_speed# player movment with vector
+    player_rect.center += player_dir*player_speed# player movment with vector
     if player_rect.right > window_width or player_rect.left < 0:
-        player_speed[0] *= -1
+        player_dir[0] *= -1
     if player_rect.top < 0 or player_rect.bottom > window_height:
-        player_speed[1] *= -1
+        player_dir[1] *= -1
 
     screen.blit(player_surf,player_rect)
     screen.blit(laser_surf,laser_rect)
