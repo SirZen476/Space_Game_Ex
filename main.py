@@ -19,13 +19,13 @@ surf.fill('orange')
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
 # for player movment - may change
-player_speed = 250
+player_speed = 300
 player_dir = []# ends up as a list of 4 vectors for movment in diffrent axis
 player_dir.append(pygame.math.Vector2(0,1))#down index 0
 player_dir.append(pygame.math.Vector2(2,0))# right 1
 player_dir.append(pygame.math.Vector2(0,-1))# up 2
 player_dir.append(pygame.math.Vector2(-2,0))# left 3
-
+player_direction = pygame.math.Vector2()
 #load objects
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
@@ -47,19 +47,23 @@ while running:
 
 
     keys = pygame.key.get_pressed()
-
-    if keys[pygame.K_DOWN] and player_rect.bottom < window_height :
-        player_rect.center += player_dir[0] * player_speed * dt
-        player_dir2 = pygame.math.Vector2(0,1)
-    if keys[pygame.K_RIGHT] and player_rect.right < window_width:# right
-        player_rect.center += player_dir[1] * player_speed * dt
-        player_dir2 = pygame.math.Vector2(1,0)
-    if keys[pygame.K_UP]  and player_rect.top > 0:# up
-        player_rect.center += player_dir[2] * player_speed * dt
-        player_dir2 = pygame.math.Vector2(0,-1)
-    if keys[pygame.K_LEFT] and player_rect.left > 0:# left
-        player_rect.center += player_dir[3] * player_speed * dt
-
+    #new movment system
+    player_direction.x = 1.5*(int(keys[pygame.K_RIGHT]) -int(keys[pygame.K_LEFT]))
+    player_direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])
+    player_rect.center += player_direction * player_speed * dt
+    '''
+        if keys[pygame.K_DOWN] and player_rect.bottom < window_height :
+            player_rect.center += player_dir[0] * player_speed * dt
+            player_dir2 = pygame.math.Vector2(0,1)
+        if keys[pygame.K_RIGHT] and player_rect.right < window_width:# right
+            player_rect.center += player_dir[1] * player_speed * dt
+            player_dir2 = pygame.math.Vector2(1,0)
+        if keys[pygame.K_UP]  and player_rect.top > 0:# up
+            player_rect.center += player_dir[2] * player_speed * dt
+            player_dir2 = pygame.math.Vector2(0,-1)
+        if keys[pygame.K_LEFT] and player_rect.left > 0:# left
+            player_rect.center += player_dir[3] * player_speed * dt
+    '''
     #draw game
     screen.fill('azure3')#fill with blue color
     for pos in star_pos :
