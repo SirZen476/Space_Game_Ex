@@ -19,6 +19,7 @@ y = 200
 # import images
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
+player_dir = 1# 1 is left, -1 is right
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (window_width/2,window_height-200))
@@ -29,7 +30,7 @@ meteor_rect = meteor_surf.get_rect(center = (window_width/2,window_height/2))
 star_surf = pygame.image.load('source_files/images/star.png')
 star_pos= [(randint(0,window_width),randint(0,window_height)) for i in range(20)]
 #
-flag = True
+
 
 
 while True:
@@ -44,14 +45,9 @@ while True:
     for pos in star_pos :
         screen.blit(star_surf,pos)
 
-    if player_rect.right < window_width and flag == True:
-        player_rect.left += 1
-    else :
-        flag = False
-    if player_rect.left > 0 and flag == False:
-        player_rect.right += -1
-    else:
-        flag = True
+    player_rect.x += player_dir
+    if player_rect.right > window_width or player_rect.left < 0:
+        player_dir *= -1
 
 
     screen.blit(player_surf,player_rect)
