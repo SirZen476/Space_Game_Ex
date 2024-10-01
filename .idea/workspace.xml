@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="loaded images">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added 20 random stars on screen">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727779358432</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added 20 random stars on screen">
+      <option name="closed" value="true" />
+      <created>1727780193498</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727780193498</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,6 +157,7 @@
     <MESSAGE value="changed foldar name" />
     <MESSAGE value="loaded player image, made it move" />
     <MESSAGE value="loaded images" />
-    <option name="LAST_COMMIT_MESSAGE" value="loaded images" />
+    <MESSAGE value="added 20 random stars on screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added 20 random stars on screen" />
   </component>
 </project>
