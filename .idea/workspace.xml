@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="loaded player image, made it move">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="loaded images">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727779200832</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="loaded images">
+      <option name="closed" value="true" />
+      <created>1727779358432</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727779358432</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,6 +147,7 @@
     <MESSAGE value="added orange surfacee in window" />
     <MESSAGE value="changed foldar name" />
     <MESSAGE value="loaded player image, made it move" />
-    <option name="LAST_COMMIT_MESSAGE" value="loaded player image, made it move" />
+    <MESSAGE value="loaded images" />
+    <option name="LAST_COMMIT_MESSAGE" value="loaded images" />
   </component>
 </project>

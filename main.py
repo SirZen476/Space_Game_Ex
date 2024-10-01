@@ -2,6 +2,7 @@
 #https://github.com/clear-code-projects/5games
 
 import pygame
+from sympy.core.random import randint
 
 #general setup
 #pygame.init()# init pygame
@@ -18,7 +19,11 @@ y = 200
 player_surf = pygame.image.load('source_files/images/player.png')
 laser_surf = pygame.image.load('source_files/images/laser.png')
 meteor_surf = pygame.image.load('source_files/images/meteor.png')
-starr_surf = pygame.image.load('source_files/images/star.png')
+star_surf = pygame.image.load('source_files/images/star.png')
+star_pos= [(randint(0,window_width),randint(0,window_height)) for i in range(20)]
+#
+
+
 
 while True:
     #event loop
@@ -29,8 +34,9 @@ while True:
 
     #draw game
     screen.fill('azure3')#fill with blue color
-    x+= 0.1
     screen.blit(player_surf,(x,y))
+    for pos in star_pos :
+        screen.blit(star_surf,pos)
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 
