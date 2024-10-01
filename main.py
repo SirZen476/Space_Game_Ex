@@ -35,6 +35,34 @@ class Star(Sprite):
         self.image = pygame.image.load('source_files/images/star.png')
         self.rect = self.image.get_rect(center = position)
 
+
+class Laser(Sprite):
+    def __init__(self,groups ,x,y):
+        super().__init__(groups)
+        self.image = pygame.image.load('source_files/images/laser.png')
+        self.rect = self.image.get_rect(center = (x,y-20))
+        self.speed = 0# when moving 800
+        self.direction = pygame.math.Vector2(0,-1)# goes up only
+    def fire(self):
+        self.speed = 700
+    def update(self, dt):
+        self.rect.center += self.direction * self.speed * dt
+
+class Meteor(Sprite):
+    def __init__(self,groups,x,y):
+        super().__init__(groups)
+        self.image = pygame.image.load('source_files/images/meteor.png')
+        self.rect = self.image.get_rect(center = (x,y))
+        self.speed = 300
+        self.direction = pygame.math.Vector2(0,1)
+        self.hp = 5
+    def update(self, dt):
+        self.rect.center += self.direction * self.speed * dt
+
+
+
+
+
 #general setup
 #pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
 window_width,window_height = 1280, 720 #screen size
@@ -47,12 +75,9 @@ FPS_target = 99
 all_sprites = pygame.sprite.Group()
 player = Player(all_sprites)
 
-laser_surf = pygame.image.load('source_files/images/laser.png')
-laser_rect = laser_surf.get_rect(center = (20,window_height-40))
+laser = Laser(all_sprites,20,window_height-20)
 
-meteor_surf = pygame.image.load('source_files/images/meteor.png')
-meteor_rect = meteor_surf.get_rect(center = (window_width/2,window_height/2))
-
+meteor = Meteor(all_sprites,window_width/2,window_height/2)
 for i in range(20):
     star = Star(all_sprites,(randint(0,window_width),randint(0,window_height)))
 
@@ -65,7 +90,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:  # single time use- so key press will register just once # fire lasr - need to implement
-            print("fire")
+            laser_fire = Laser(all_sprites,player.rect.centerx,player.rect.centery)
+            laser_fire.fire()
 
     #update
     all_sprites.update(dt)
@@ -73,8 +99,6 @@ while running:
 
     screen.fill('azure3')#fill with blue color
     all_sprites.draw(screen)
-    screen.blit(laser_surf,laser_rect)
-    screen.blit(meteor_surf,meteor_rect)
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 
