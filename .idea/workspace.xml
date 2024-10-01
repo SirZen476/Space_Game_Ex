@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="implemented mouse movment with pygames.mouse">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="implemented keyboard movement with pygame.keys">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727789053827</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="implemented keyboard movement with pygame.keys">
+      <option name="closed" value="true" />
+      <created>1727789432134</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1727789432134</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -236,6 +244,7 @@
     <MESSAGE value="made movment independent of FrameRate with delta time" />
     <MESSAGE value="implemented single key input" />
     <MESSAGE value="implemented mouse movment with pygames.mouse" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented mouse movment with pygames.mouse" />
+    <MESSAGE value="implemented keyboard movement with pygame.keys" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented keyboard movement with pygame.keys" />
   </component>
 </project>
