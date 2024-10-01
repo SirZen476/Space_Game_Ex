@@ -14,8 +14,11 @@ surf = pygame.Surface((100,200))
 surf.fill('orange')
 x = 100
 y = 200
-# import image
+# import images
 player_surf = pygame.image.load('source_files/images/player.png')
+laser_surf = pygame.image.load('source_files/images/laser.png')
+meteor_surf = pygame.image.load('source_files/images/meteor.png')
+starr_surf = pygame.image.load('source_files/images/star.png')
 
 while True:
     #event loop

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added orange surfacee in window">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="loaded player image, made it move">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +105,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727778786417</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="changed foldar name">
+      <option name="closed" value="true" />
+      <created>1727779116166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727779116166</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changed foldar name">
+      <option name="closed" value="true" />
+      <created>1727779125613</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727779125613</updated>
+    </task>
+    <task id="LOCAL-00007" summary="loaded player image, made it move">
+      <option name="closed" value="true" />
+      <created>1727779200832</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727779200832</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,6 +137,8 @@
     <MESSAGE value="Created window, need a minute to load with pygam.init()" />
     <MESSAGE value="changed window name" />
     <MESSAGE value="added orange surfacee in window" />
-    <option name="LAST_COMMIT_MESSAGE" value="added orange surfacee in window" />
+    <MESSAGE value="changed foldar name" />
+    <MESSAGE value="loaded player image, made it move" />
+    <option name="LAST_COMMIT_MESSAGE" value="loaded player image, made it move" />
   </component>
 </project>
