@@ -15,7 +15,7 @@ class Player(Sprite):
         self.speed = 500
         self.direction = pygame.math.Vector2()
 
-    def update(self):
+    def update(self,dt):
         keys = pygame.key.get_pressed()
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
         self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])  # y speed
@@ -29,6 +29,11 @@ class Player(Sprite):
             self.direction = self.direction.normalize()  # normalize to keep speed in diagonal movment same
         self.rect.center += self.direction * self.speed * dt
 
+class Star(Sprite):
+    def __init__(self,groups,position):
+        super().__init__(groups)
+        self.image = pygame.image.load('source_files/images/star.png')
+        self.rect = self.image.get_rect(center = position)
 
 #general setup
 #pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
@@ -48,8 +53,9 @@ laser_rect = laser_surf.get_rect(center = (20,window_height-40))
 meteor_surf = pygame.image.load('source_files/images/meteor.png')
 meteor_rect = meteor_surf.get_rect(center = (window_width/2,window_height/2))
 
-star_surf = pygame.image.load('source_files/images/star.png')
-star_pos= [(randint(0,window_width),randint(0,window_height)) for i in range(20)]
+for i in range(20):
+    star = Star(all_sprites,(randint(0,window_width),randint(0,window_height)))
+
 
 # game loop
 while running:
@@ -58,19 +64,19 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:# single time use- so key press will register just once
-            if event.key == pygame.K_SPACE:# fire lasr - need to implement
-                print("fire")
-    #player update
-    all_sprites.update()
-    #draw game
-    screen.fill('azure3')#fill with blue color
-    for pos in star_pos :
-        screen.blit(star_surf,pos)
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:  # single time use- so key press will register just once # fire lasr - need to implement
+            print("fire")
 
+    #update
+    all_sprites.update(dt)
+    #draw game
+
+    screen.fill('azure3')#fill with blue color
     all_sprites.draw(screen)
     screen.blit(laser_surf,laser_rect)
     screen.blit(meteor_surf,meteor_rect)
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
+
+
 
 pygame.quit()
