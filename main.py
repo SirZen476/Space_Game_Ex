@@ -8,10 +8,10 @@ from random import randint
 from pygame.sprite import Sprite
 
 class Player(Sprite):
-    def __init__(self):
-        super().__init__()# for inheretance to init parent class
-        self.surf = pygame.image.load('source_files/images/player.png')
-        self.rect = self.surf.get_rect(center = (window_width/2,window_height-100))
+    def __init__(self, groups):
+        super().__init__(groups)# for inheretance to init parent class
+        self.image = pygame.image.load('source_files/images/player.png')
+        self.rect = self.image.get_rect(center = (window_width/2,window_height-100))
         self.speed = 500
         self.direction = pygame.math.Vector2()
 
@@ -39,8 +39,8 @@ running = True
 clock =pygame.time.Clock()  # control framerate, control
 FPS_target = 99
 # create  player and items
-
-player = Player()
+all_sprites = pygame.sprite.Group()
+player = Player(all_sprites)
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (20,window_height-40))
@@ -62,13 +62,13 @@ while running:
             if event.key == pygame.K_SPACE:# fire lasr - need to implement
                 print("fire")
     #player update
-    player.update()
+    all_sprites.update()
     #draw game
     screen.fill('azure3')#fill with blue color
     for pos in star_pos :
         screen.blit(star_surf,pos)
 
-    screen.blit(player.surf,player.rect)
+    all_sprites.draw(screen)
     screen.blit(laser_surf,laser_rect)
     screen.blit(meteor_surf,meteor_rect)
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window

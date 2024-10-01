@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added &quot;fire&quot; on spacebar - once per press">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="created player class from sprite">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727791727012</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="created player class from sprite">
+      <option name="closed" value="true" />
+      <created>1727792280856</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1727792280856</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -290,6 +299,7 @@
     <MESSAGE value="modified if statment lines 53 to 57, now wont get stuck at corner of screen" />
     <MESSAGE value="added normalization" />
     <MESSAGE value="added &quot;fire&quot; on spacebar - once per press" />
-    <option name="LAST_COMMIT_MESSAGE" value="added &quot;fire&quot; on spacebar - once per press" />
+    <MESSAGE value="created player class from sprite" />
+    <option name="LAST_COMMIT_MESSAGE" value="created player class from sprite" />
   </component>
 </project>
