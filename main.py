@@ -20,8 +20,8 @@ y = 200
 # import images
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
-player_speedx = 5# 1 is left, -1 is right
-player_speedy= 5
+player_speed = pygame.math.Vector2(5,5)
+
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (window_width/2,window_height-200))
@@ -45,14 +45,12 @@ while running:
     screen.fill('azure3')#fill with blue color
     for pos in star_pos :
         screen.blit(star_surf,pos)
-    #random x movement
-    player_rect.x += player_speedx
+    #random x and y movement
+    player_rect.center += player_speed# not working
     if player_rect.right > window_width or player_rect.left < 0:
-        player_speedx *= -1
-        #random y movement
-    player_rect.bottom += player_speedy
+        player_speed[0] *= -1
     if player_rect.top < 0 or player_rect.bottom > window_height:
-        player_speedy *= -1
+        player_speed[1] *= -1
 
     screen.blit(player_surf,player_rect)
     screen.blit(laser_surf,laser_rect)
