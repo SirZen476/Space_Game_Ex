@@ -46,7 +46,7 @@ while running:
     for pos in star_pos :
         screen.blit(star_surf,pos)
     #random x and y movement
-    player_rect.center += player_speed# not working
+    player_rect.center += player_speed# player movment with vector
     if player_rect.right > window_width or player_rect.left < 0:
         player_speed[0] *= -1
     if player_rect.top < 0 or player_rect.bottom > window_height:
