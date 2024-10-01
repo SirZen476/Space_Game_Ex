@@ -40,6 +40,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:# single time use- so key press will register just once
+            if event.key == pygame.K_SPACE:# fire lasr - need to implement
+                print("fire")
 
 
     keys = pygame.key.get_pressed()
@@ -53,6 +56,9 @@ while running:
     if player_direction:
         player_direction = player_direction.normalize()# normalize to keep speed in diagonal movment same
     player_rect.center += player_direction* player_speed * dt
+
+
+
 
     #draw game
     screen.fill('azure3')#fill with blue color
