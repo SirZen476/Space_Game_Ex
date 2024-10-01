@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed movment to vector">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed movement to dir and speed">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727783852092</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="changed movment to vector">
+      <option name="closed" value="true" />
+      <created>1727783866092</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727783866093</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changed movement to dir and speed">
+      <option name="closed" value="true" />
+      <created>1727784003364</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727784003364</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,6 +208,7 @@
     <MESSAGE value="added meteor and laser, made player go from left to right in loops" />
     <MESSAGE value="added 4 direction movment (random ) , added framerate(clock)" />
     <MESSAGE value="changed movment to vector" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed movment to vector" />
+    <MESSAGE value="changed movement to dir and speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed movement to dir and speed" />
   </component>
 </project>

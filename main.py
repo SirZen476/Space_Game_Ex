@@ -19,7 +19,7 @@ surf.fill('orange')
 player_surf = pygame.image.load('source_files/images/player.png')
 player_rect = player_surf.get_rect(center = (window_width/2,window_height-100))# rect to control position
 player_dir = pygame.math.Vector2(1,1)
-player_speed = 5
+player_speed = 300
 
 laser_surf = pygame.image.load('source_files/images/laser.png')
 laser_rect = laser_surf.get_rect(center = (window_width/2,window_height-200))
@@ -33,7 +33,7 @@ star_pos= [(randint(0,window_width),randint(0,window_height)) for i in range(20)
 
 
 while running:
-    clock.tick(FPS_target)
+    dt = clock.tick(FPS_target) /1000
     #event loop
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -44,7 +44,7 @@ while running:
     for pos in star_pos :
         screen.blit(star_surf,pos)
     #random x and y movement
-    player_rect.center += player_dir*player_speed# player movment with vector
+    player_rect.center += player_dir * player_speed * dt# player movment with vector
     if player_rect.right > window_width or player_rect.left < 0:
         player_dir[0] *= -1
     if player_rect.top < 0 or player_rect.bottom > window_height:
