@@ -43,16 +43,21 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_DOWN and player_rect.bottom < window_height:
+        '''
+        if event.type == pygame.KEYDOWN:# key press movment
+            if event.key == pygame.K_DOWN and player_rect.bottom < window_height:# lefy
                 player_rect.center += player_dir[0] * player_speed * dt
-            if event.key == pygame.K_RIGHT and player_rect.right < window_width:
+            if event.key == pygame.K_RIGHT and player_rect.right < window_width:# right
                 player_rect.center += player_dir[1] * player_speed * dt
-            if event.key == pygame.K_UP and player_rect.top > 0:
+            if event.key == pygame.K_UP and player_rect.top > 0:# up
                 player_rect.center += player_dir[2] * player_speed * dt
-            if event.key == pygame.K_LEFT and player_rect.left > 0:
+            if event.key == pygame.K_LEFT and player_rect.left > 0:# left
                 player_rect.center += player_dir[3] * player_speed * dt
+        if event.type == pygame.MOUSEMOTION:
+            player_rect.center = event.pos
+''' # diffrent implementation:
 
+    player_rect.center = pygame.mouse.get_pos()
 
 
     #draw game

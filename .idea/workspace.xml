@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="made movment independent of FrameRate with delta time">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="implemented single key input">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727784468034</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="implemented single key input">
+      <option name="closed" value="true" />
+      <created>1727788728458</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1727788728458</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -219,6 +226,7 @@
     <MESSAGE value="changed movment to vector" />
     <MESSAGE value="changed movement to dir and speed" />
     <MESSAGE value="made movment independent of FrameRate with delta time" />
-    <option name="LAST_COMMIT_MESSAGE" value="made movment independent of FrameRate with delta time" />
+    <MESSAGE value="implemented single key input" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented single key input" />
   </component>
 </project>
