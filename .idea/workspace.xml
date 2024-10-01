@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed window name">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added orange surfacee in window">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,13 +97,22 @@
       <option name="project" value="LOCAL" />
       <updated>1727778197859</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added orange surfacee in window">
+      <option name="closed" value="true" />
+      <created>1727778786417</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727778786417</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added game files" />
     <MESSAGE value="Created window, need a minute to load with pygam.init()" />
     <MESSAGE value="changed window name" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed window name" />
+    <MESSAGE value="added orange surfacee in window" />
+    <option name="LAST_COMMIT_MESSAGE" value="added orange surfacee in window" />
   </component>
 </project>

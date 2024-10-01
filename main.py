@@ -12,6 +12,11 @@ running = True
 
 surf = pygame.Surface((100,200))
 surf.fill('orange')
+x = 100
+y = 200
+# import image
+player_surf = pygame.image.load('/space shooter/images/player.png')
+
 while True:
     #event loop
     for event in pygame.event.get():
@@ -21,7 +26,8 @@ while True:
 
     #draw game
     screen.fill('azure3')#fill with blue color
-    screen.blit(surf,(100,150))
+    x+= 0.1
+    screen.blit(surf,(x,y))
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 
