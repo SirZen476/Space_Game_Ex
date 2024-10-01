@@ -50,7 +50,12 @@ while running:
     #new movment system
     player_direction.x = 1.5*(int(keys[pygame.K_RIGHT]) -int(keys[pygame.K_LEFT]))
     player_direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])
+    if (player_rect.bottom > window_height and player_direction.y > 0) or (player_rect.top < 0 and player_direction.y < 0) :
+        player_direction.y = 0
+    if (player_rect.right > window_width and player_direction.x>0 ) or (player_rect.left < 0 and player_direction.x<0):
+        player_direction.x = 0
     player_rect.center += player_direction * player_speed * dt
+
     '''
         if keys[pygame.K_DOWN] and player_rect.bottom < window_height :
             player_rect.center += player_dir[0] * player_speed * dt
