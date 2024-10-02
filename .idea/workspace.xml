@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="stars, meteor and laser all have their own class and simple movment , no collision detect yet">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="cleanup and small changes( changed and Meteor Star class so it recives an image to not load the same thing every time)">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -297,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1727794116989</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="cleanup and small changes( changed and Meteor Star class so it recives an image to not load the same thing every time)">
+      <option name="closed" value="true" />
+      <created>1727794629101</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1727794629101</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added game files" />
     <MESSAGE value="Created window, need a minute to load with pygam.init()" />
     <MESSAGE value="changed window name" />
     <MESSAGE value="added orange surfacee in window" />
@@ -326,6 +333,7 @@
     <MESSAGE value="added player to all_sprites group, update and draw via it" />
     <MESSAGE value="created star class, added to all sprites" />
     <MESSAGE value="stars, meteor and laser all have their own class and simple movment , no collision detect yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="stars, meteor and laser all have their own class and simple movment , no collision detect yet" />
+    <MESSAGE value="cleanup and small changes( changed and Meteor Star class so it recives an image to not load the same thing every time)" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup and small changes( changed and Meteor Star class so it recives an image to not load the same thing every time)" />
   </component>
 </project>

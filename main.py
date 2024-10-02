@@ -99,7 +99,7 @@ while running:
     all_sprites.update(dt)
     #draw game
 
-    screen.fill('azure3')#fill with blue color
+    screen.fill('black')#fill with blue color
     all_sprites.draw(screen)
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
