@@ -10,9 +10,9 @@ from random import randint, uniform
 from pygame.sprite import Sprite
 
 class Player(Sprite):
-    def __init__(self, groups):
+    def __init__(self, groups,image):
         super().__init__(groups)# for inheretance to init parent class
-        self.image = pygame.image.load('source_files/images/player.png')
+        self.image = image
         self.rect = self.image.get_rect(center = (window_width/2,window_height-100))
         self.speed = 500
         self.direction = pygame.math.Vector2()
@@ -135,6 +135,12 @@ class Explosion(Sprite):
             self.kill()
         else : self.image = self.images[int(self.id) ]
 
+class Hp_sprite(Sprite):
+    def __init__(self,groups,image,x,y):
+        super().__init__(groups)
+        self.image = image
+        self.rect = self.image.get_rect(center = (x,y))
+
 def Collisions():# returns true if no coll with meteor, false if coll with meteor detected, checks for coll for lasers with meteor, destroys both on hit
     for laser in lasers_sprites:
         if (pygame.sprite.spritecollide(laser, meteors_sprites, True, pygame.sprite.collide_mask)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
@@ -175,11 +181,16 @@ FPS_target = 99
 all_sprites = pygame.sprite.Group()
 lasers_sprites = pygame.sprite.Group()
 meteors_sprites = pygame.sprite.Group()
+hp_sprites = pygame.sprite.Group()
+
+#load font
 font = pygame.font.Font('source_files/images/Oxanium-Bold.ttf', 30)
+
 # load images
 image_laser = pygame.image.load('source_files/images/laser.png')
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
 image_meteor = pygame.image.load('source_files/images/meteor.png')
+image_player = pygame.image.load('source_files/images/player.png')
 # load explosion frames :
 images_exp = []
 for i in range(0,21):
@@ -187,12 +198,17 @@ for i in range(0,21):
 
 # create laser and stars sprite for display
 
-laser_view = Laser(all_sprites,20,window_height-20,image_laser)# for view on the side
+#laser_view = Laser(all_sprites,20,window_height-20,image_laser)# for view on the side
 for i in range(20):
     Star(all_sprites,image_star)
 #create player
 
-player = Player(all_sprites)# for ease of access
+player = Player(all_sprites,image_player)# for ease of access
+
+#now to create hp :
+image_player = pygame.transform.scale(image_player, (50,50))
+for i in range(3):
+    Hp_sprite(hp_sprites,image_player,150-i*50, window_height-40)
 
 #timers and events -> meteor event
 
@@ -225,8 +241,17 @@ while running:
     #draw game
     screen.fill('black')#fill with blue color
     all_sprites.draw(screen)
+    delete_num = len(hp_sprites.sprites()) - player.hp
+    # check hp and delete hp_sprite as needed
+    for sprite in hp_sprites:
+        if delete_num == 0:
+            break
+        else:
+            sprite.kill()
+            delete_num -= 1
+    hp_sprites.draw(screen)
     display_score()
-    display_hp()
+    #display_hp() - display hp in numeric value via text
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 
