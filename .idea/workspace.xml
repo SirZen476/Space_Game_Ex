@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added font and displaye of text, cleanup">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added score display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -363,11 +363,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728204719005</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added score display">
+      <option name="closed" value="true" />
+      <created>1728205288646</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1728205288646</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added 20 random stars on screen" />
     <MESSAGE value="added meteor and laser, made player go from left to right in loops" />
     <MESSAGE value="added 4 direction movment (random ) , added framerate(clock)" />
     <MESSAGE value="changed movment to vector" />
@@ -392,6 +399,18 @@
     <MESSAGE value="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again" />
     <MESSAGE value="changed cooldown for laser shot , changed meteor movment" />
     <MESSAGE value="added font and displaye of text, cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="added font and displaye of text, cleanup" />
+    <MESSAGE value="added score display" />
+    <option name="LAST_COMMIT_MESSAGE" value="added score display" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

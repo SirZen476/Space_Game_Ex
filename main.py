@@ -78,11 +78,25 @@ class Meteor(Sprite):
         if self.rect.top > window_height:
             self.kill()# kill if out of screen
 
+class Explosion(Sprite):
+    def __init__(self,groups,x,y,images):
+        super().__init__(groups)
+        self.id = 0
+        self.images = images
+        self.image = self.images[self.id]
+        self.rect = self.image.get_rect(center = (x,y))
+    def update(self, dt):
+        self.id += 1
+        if self.id == len(self.images):
+            self.kill()
+        else : self.image = self.images[self.id ]
+
 def Collisions():# returns true if no coll with meteor, false if coll with meteor detected, checks for coll for lasers with meteor, destroys both on hit
     for laser in lasers_sprites:
         if (pygame.sprite.spritecollide(laser, meteors_sprites, True)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
             laser.kill()# delete laser
             player.addscore()
+            Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
     if pygame.sprite.spritecollide(player, meteors_sprites, False):
         return False
     return True
@@ -112,6 +126,11 @@ font = pygame.font.Font('source_files/images/Oxanium-Bold.ttf', 30)
 image_laser = pygame.image.load('source_files/images/laser.png')
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
 image_meteor = pygame.image.load('source_files/images/meteor.png')
+images_exp = []
+for i in range(0,21):
+    images_exp.append(pygame.image.load('source_files/images/explosion/'+str(i)+'.png'))
+exp_id = -1
+
 # create laser and stars sprite for display
 
 laser_view = Laser(all_sprites,20,window_height-20,image_laser)# for view on the side
