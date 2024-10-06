@@ -16,10 +16,12 @@ class Player(Sprite):
         self.rect = self.image.get_rect(center = (window_width/2,window_height-100))
         self.speed = 500
         self.direction = pygame.math.Vector2()
+        # for shooting and score
         self.last_shot = 0.0
         self.cooldown = 250
         self.score = 0
-
+        #mask
+        self.mask = pygame.mask.from_surface(self.image)
     def addscore(self,score):
         self.score +=score
 
@@ -58,8 +60,11 @@ class Laser(Sprite):
         self.rect = self.image.get_rect(center = (x,y-20))
         self.speed = 0# when moving 800
         self.direction = pygame.math.Vector2(0,-1)# goes up only
+        self.mask = pygame.mask.from_surface(self.image)
+
     def fire(self):
         self.speed = 700
+
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
         if self.rect.bottom < 0:
@@ -72,6 +77,8 @@ class Meteor(Sprite):
         self.rect = self.image.get_rect(center = (x,y))
         self.speed = 500
         self.direction = pygame.Vector2(uniform(-0.5,0.5),1)
+        self.mask = pygame.mask.from_surface(self.image)
+
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
         if self.rect.top > window_height:
@@ -85,6 +92,8 @@ class Explosion(Sprite):
         self.images = images
         self.image = self.images[self.id]
         self.rect = self.image.get_rect(center = (x,y))
+        self.mask = pygame.mask.from_surface(self.image)
+
     def update(self, dt):
         self.id += 1
         if self.id == len(self.images):

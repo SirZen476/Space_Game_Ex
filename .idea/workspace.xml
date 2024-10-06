@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added explosion on hit(laser with meteor- imported 21 images, cycles and displays one at each frame)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed score visuals, added 10 points for meteor dodged">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,11 +378,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728206195313</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="changed score visuals, added 10 points for meteor dodged">
+      <option name="closed" value="true" />
+      <created>1728207092179</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1728207092179</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added 4 direction movment (random ) , added framerate(clock)" />
     <MESSAGE value="changed movment to vector" />
     <MESSAGE value="changed movement to dir and speed" />
     <MESSAGE value="made movment independent of FrameRate with delta time" />
@@ -407,7 +414,8 @@
     <MESSAGE value="added font and displaye of text, cleanup" />
     <MESSAGE value="added score display" />
     <MESSAGE value="added explosion on hit(laser with meteor- imported 21 images, cycles and displays one at each frame)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added explosion on hit(laser with meteor- imported 21 images, cycles and displays one at each frame)" />
+    <MESSAGE value="changed score visuals, added 10 points for meteor dodged" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed score visuals, added 10 points for meteor dodged" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -419,7 +427,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>80</line>
+          <line>81</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
