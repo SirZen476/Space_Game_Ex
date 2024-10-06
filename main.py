@@ -14,21 +14,18 @@ class Player(Sprite):
         self.rect = self.image.get_rect(center = (window_width/2,window_height-100))
         self.speed = 500
         self.direction = pygame.math.Vector2()
-        self.can_shoot = True
         self.last_shot = 0.0
         self.cooldown = 400
 
     def update(self,dt):
-        current_shot = pygame.time.get_ticks()
-        if current_shot - self.last_shot > self.cooldown:
-            self.can_shoot = True
+        current_time = pygame.time.get_ticks()
+        interval = current_time - self.last_shot
         keys = pygame.key.get_pressed()
         #chek for shot and fire
-        if(keys[pygame.K_SPACE] and self.can_shoot):
+        if(keys[pygame.K_SPACE] and interval> self.cooldown):
             laser_fire = Laser(all_sprites, self.rect.centerx, self.rect.centery, image_laser)  # add new laser
             laser_fire.fire()
             self.last_shot = pygame.time.get_ticks()
-            self.can_shoot = False
         #movment
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
         self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])  # y speed
