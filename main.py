@@ -14,8 +14,14 @@ class Player(Sprite):
         self.rect = self.image.get_rect(center = (window_width/2,window_height-100))
         self.speed = 500
         self.direction = pygame.math.Vector2()
+        self.can_shoot = True
+        self.last_shot = 0.0
+        self.cooldown = 400
 
     def update(self,dt):
+        current_shot = pygame.time.get_ticks()
+        if current_shot - self.last_shot > self.cooldown:
+            self.can_shoot = True
         keys = pygame.key.get_pressed()
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
         self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])  # y speed
@@ -77,14 +83,20 @@ all_sprites = pygame.sprite.Group()
 # add items to game
 image_laser = pygame.image.load('source_files/images/laser.png')
 laser = Laser(all_sprites,20,window_height-20,image_laser)
-
+# load image for stars and create stars
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
 for i in range(20):
     star = Star(all_sprites,image_star)
+#load image for meteor
 image_meteor = pygame.image.load('source_files/images/meteor.png')
-meteor = Meteor(all_sprites,window_width/2,window_height/2, image_meteor)
 
 player = Player(all_sprites)
+
+#timers and events -> meteor event
+
+meteor_event = pygame.event.custom_type()
+pygame.time.set_timer(meteor_event, 1000)
+
 
 
 
@@ -95,9 +107,13 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:  # fire laser - just one press
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and player.can_shoot:  # fire laser - to recognize just one press and not holdown
             laser_fire = Laser(all_sprites,player.rect.centerx,player.rect.centery,image_laser)# add new laser
             laser_fire.fire()
+            player.last_shot = pygame.time.get_ticks()
+            player.can_shoot = False
+        if event.type == meteor_event:
+            meteor_new = Meteor(all_sprites,randint(0,window_width),0,image_meteor)
 
     #update
     all_sprites.update(dt)
