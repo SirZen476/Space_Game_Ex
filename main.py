@@ -32,6 +32,7 @@ class Player(Sprite):
             laser_fire = Laser((all_sprites,lasers_sprites), self.rect.centerx, self.rect.centery, image_laser)  # add new laser
             laser_fire.fire()#fire the laser - start movment
             self.last_shot = pygame.time.get_ticks()
+            sound_laser.play()
         #movment
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
         self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])  # y speed
@@ -97,10 +98,10 @@ class Explosion(Sprite):
         self.rect = self.image.get_rect(center = (x,y))
 
     def update(self, dt):
-        self.id += 1
-        if self.id == len(self.images):
+        self.id += 30 * dt
+        if self.id >= len(self.images):# check if id is out of range - animation is done if true, kill sprite to not show again
             self.kill()
-        else : self.image = self.images[self.id ]
+        else : self.image = self.images[int(self.id) ]
 
 def Collisions():# returns true if no coll with meteor, false if coll with meteor detected, checks for coll for lasers with meteor, destroys both on hit
     for laser in lasers_sprites:
@@ -108,6 +109,7 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
             laser.kill()# delete laser
             player.addscore(100)
             Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
+            sound_exp.play()
     if pygame.sprite.spritecollide(player, meteors_sprites, False,pygame.sprite.collide_mask):# pygame.sprite.collide_mask - better collision , but affects game speed - not really a factor for now
         return False
     return True
@@ -137,10 +139,10 @@ font = pygame.font.Font('source_files/images/Oxanium-Bold.ttf', 30)
 image_laser = pygame.image.load('source_files/images/laser.png')
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
 image_meteor = pygame.image.load('source_files/images/meteor.png')
+# load explosion frames :
 images_exp = []
 for i in range(0,21):
     images_exp.append(pygame.image.load('source_files/images/explosion/'+str(i)+'.png'))
-exp_id = -1
 
 # create laser and stars sprite for display
 
@@ -155,6 +157,14 @@ player = Player(all_sprites)# for ease of access
 
 meteor_event = pygame.event.custom_type()
 pygame.time.set_timer(meteor_event, 200)
+# sounds!
+sound_laser = pygame.mixer.Sound('source_files/audio/laser.wav')
+sound_laser.set_volume(0.5)
+sound_exp = pygame.mixer.Sound('source_files/audio/explosion.wav')
+sound_exp.set_volume(0.5)
+sound_game = pygame.mixer.Sound('source_files/audio/game_music.wav')
+sound_game.set_volume(0.4)
+sound_game.play(loops = -1)
 
 
 # game loop

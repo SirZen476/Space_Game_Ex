@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added simple rotation for meteors">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added rect update for meteor to fix movment at high rotation speeds">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -410,12 +411,26 @@
       <option name="project" value="LOCAL" />
       <updated>1728208193620</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added simple rotation for meteors with random rotation speed, moves funky">
+      <option name="closed" value="true" />
+      <created>1728208373425</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1728208373425</updated>
+    </task>
+    <task id="LOCAL-00044" summary="added rect update for meteor to fix movment at high rotation speeds">
+      <option name="closed" value="true" />
+      <created>1728208478123</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1728208478123</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented single key input" />
-    <MESSAGE value="implemented mouse movment with pygames.mouse" />
     <MESSAGE value="implemented keyboard movement with pygame.keys" />
     <MESSAGE value="removed old movment systems, cleanup" />
     <MESSAGE value="new movment , 2 lines but gets out of bounds" />
@@ -439,22 +454,8 @@
     <MESSAGE value="added mask to all classes (except star)" />
     <MESSAGE value="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate" />
     <MESSAGE value="added simple rotation for meteors" />
-    <option name="LAST_COMMIT_MESSAGE" value="added simple rotation for meteors" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added simple rotation for meteors with random rotation speed, moves funky" />
+    <MESSAGE value="added rect update for meteor to fix movment at high rotation speeds" />
+    <option name="LAST_COMMIT_MESSAGE" value="added rect update for meteor to fix movment at high rotation speeds" />
   </component>
 </project>
