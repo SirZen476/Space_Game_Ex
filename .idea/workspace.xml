@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added mask to all classes (except star)" />
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -392,11 +395,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728207381666</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate">
+      <option name="closed" value="true" />
+      <created>1728207520771</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1728207520771</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed movement to dir and speed" />
     <MESSAGE value="made movment independent of FrameRate with delta time" />
     <MESSAGE value="implemented single key input" />
     <MESSAGE value="implemented mouse movment with pygames.mouse" />
@@ -421,15 +431,21 @@
     <MESSAGE value="added explosion on hit(laser with meteor- imported 21 images, cycles and displays one at each frame)" />
     <MESSAGE value="changed score visuals, added 10 points for meteor dodged" />
     <MESSAGE value="added mask to all classes (except star)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added mask to all classes (except star)" />
+    <MESSAGE value="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate" />
+    <option name="LAST_COMMIT_MESSAGE" value="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>49</line>
+          <line>47</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

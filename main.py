@@ -20,8 +20,6 @@ class Player(Sprite):
         self.last_shot = 0.0
         self.cooldown = 250
         self.score = 0
-        #mask
-        self.mask = pygame.mask.from_surface(self.image)
     def addscore(self,score):
         self.score +=score
 
@@ -60,7 +58,6 @@ class Laser(Sprite):
         self.rect = self.image.get_rect(center = (x,y-20))
         self.speed = 0# when moving 800
         self.direction = pygame.math.Vector2(0,-1)# goes up only
-        self.mask = pygame.mask.from_surface(self.image)
 
     def fire(self):
         self.speed = 700
@@ -74,16 +71,20 @@ class Meteor(Sprite):
     def __init__(self,groups,x,y,image ):
         super().__init__(groups)
         self.image = image
+        self.OG_image = image# original image for rotation later on
         self.rect = self.image.get_rect(center = (x,y))
         self.speed = 500
         self.direction = pygame.Vector2(uniform(-0.5,0.5),1)
-        self.mask = pygame.mask.from_surface(self.image)
+        self.rotation = 0
 
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
         if self.rect.top > window_height:
             self.kill()# kill if out of screen
             player.addscore(10)
+        # rotate meteor -
+        self.rotation  += 40*dt # *dt for same rotation on diffrent FPS
+        self.image = pygame.transform.rotate(self.OG_image, self.rotation)# set image as rotated one
 
 class Explosion(Sprite):
     def __init__(self,groups,x,y,images):
@@ -92,7 +93,6 @@ class Explosion(Sprite):
         self.images = images
         self.image = self.images[self.id]
         self.rect = self.image.get_rect(center = (x,y))
-        self.mask = pygame.mask.from_surface(self.image)
 
     def update(self, dt):
         self.id += 1
@@ -106,7 +106,7 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
             laser.kill()# delete laser
             player.addscore(100)
             Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
-    if pygame.sprite.spritecollide(player, meteors_sprites, False, pygame.sprite.collide_mask):
+    if pygame.sprite.spritecollide(player, meteors_sprites, False,pygame.sprite.collide_mask):# pygame.sprite.collide_mask - better collision , but affects game speed - not really a factor for now
         return False
     return True
 
