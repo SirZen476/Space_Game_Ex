@@ -20,8 +20,8 @@ class Player(Sprite):
         self.cooldown = 250
         self.score = 0
 
-    def addscore(self):
-        self.score +=100
+    def addscore(self,score):
+        self.score +=score
 
     def update(self,dt):
         current_time = pygame.time.get_ticks()
@@ -51,7 +51,6 @@ class Star(Sprite):
         self.image = image
         self.rect = self.image.get_rect(center = (randint(0,window_width),randint(0,window_height)))
 
-
 class Laser(Sprite):
     def __init__(self,groups ,x,y,image):
         super().__init__(groups)
@@ -77,6 +76,7 @@ class Meteor(Sprite):
         self.rect.center += self.direction * self.speed * dt
         if self.rect.top > window_height:
             self.kill()# kill if out of screen
+            player.addscore(10)
 
 class Explosion(Sprite):
     def __init__(self,groups,x,y,images):
@@ -95,7 +95,7 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
     for laser in lasers_sprites:
         if (pygame.sprite.spritecollide(laser, meteors_sprites, True)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
             laser.kill()# delete laser
-            player.addscore()
+            player.addscore(100)
             Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
     if pygame.sprite.spritecollide(player, meteors_sprites, False):
         return False
@@ -103,9 +103,9 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
 
 def display_score():
     score_surt = font.render('Score: '+ str(player.score), True, 'white')
-    score_rect = score_surt.get_rect(topleft = (0,0))
+    score_rect = score_surt.get_rect(topleft = (20,15))
     screen.blit(score_surt, score_rect)
-
+    pygame.draw.rect(screen, 'white', score_rect.inflate(20,15), 5,10)
 
 #general setup
 pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
