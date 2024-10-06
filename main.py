@@ -20,10 +20,42 @@ class Player(Sprite):
         self.last_shot = 0.0
         self.cooldown = 250
         self.score = 0
+
+        self.hp = 3
+        self.hp_cooldown = 200
+        self.last_hit = 0.0
+        # create white image for hit animation
+        self.hit_image = pygame.mask.from_surface(self.image)
+        self.hit_image = self.hit_image.to_surface()
+        self.hit_image.set_colorkey((0,0,0))
+
+        self.og_image = self.image # save og image for later
+
+    def check_hit(self):# true if hit in last interval false if not
+        curr_time = pygame.time.get_ticks()
+        interval = curr_time - self.last_hit
+        if (interval > self.hp_cooldown) :return False
+        return True
+
+    def hit(self):
+        if not self.check_hit():# meaning we are currently not after getting hit, meaning we can get hit
+            self.last_hit = pygame.time.get_ticks()
+            self.hp -= 1
+            sound_damage.play()
+            if self.hp <= 0:
+                return False#meaning running is false
+        return True
+
     def addscore(self,score):
         self.score +=score
 
     def update(self,dt):
+        #check if still hit
+        if self.check_hit():
+            self.image = self.hit_image
+        else:
+            self.image = self.og_image
+
         current_time = pygame.time.get_ticks()
         interval = current_time - self.last_shot
         keys = pygame.key.get_pressed()
@@ -110,8 +142,11 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
             player.addscore(100)
             Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
             sound_exp.play()
-    if pygame.sprite.spritecollide(player, meteors_sprites, False,pygame.sprite.collide_mask):# pygame.sprite.collide_mask - better collision , but affects game speed - not really a factor for now
-        return False
+    meteors_hit = pygame.sprite.spritecollide(player, meteors_sprites, False,pygame.sprite.collide_mask)
+    if meteors_hit:# pygame.sprite.collide_mask - better collision , but affects game speed - not really a factor for now
+        for meteor in meteors_hit:
+            meteor.kill()
+        return player.hit()
     return True
 
 def display_score():
@@ -119,6 +154,12 @@ def display_score():
     score_rect = score_surt.get_rect(topleft = (20,15))
     screen.blit(score_surt, score_rect)
     pygame.draw.rect(screen, 'white', score_rect.inflate(20,15), 5,10)
+
+def display_hp():
+    hp_surt = font.render('health: '+ str(player.hp), True, 'white')
+    hp_rect = hp_surt.get_rect(topleft = (20,55))
+    screen.blit(hp_surt, hp_rect)
+    pygame.draw.rect(screen, 'white', hp_rect.inflate(20,15), 5,10)
 
 #general setup
 pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
@@ -158,6 +199,7 @@ player = Player(all_sprites)# for ease of access
 meteor_event = pygame.event.custom_type()
 pygame.time.set_timer(meteor_event, 200)
 # sounds!
+sound_damage = pygame.mixer.Sound('source_files/audio/damage.ogg')
 sound_laser = pygame.mixer.Sound('source_files/audio/laser.wav')
 sound_laser.set_volume(0.5)
 sound_exp = pygame.mixer.Sound('source_files/audio/explosion.wav')
@@ -165,7 +207,6 @@ sound_exp.set_volume(0.5)
 sound_game = pygame.mixer.Sound('source_files/audio/game_music.wav')
 sound_game.set_volume(0.4)
 sound_game.play(loops = -1)
-
 
 # game loop
 while running:
@@ -185,6 +226,7 @@ while running:
     screen.fill('black')#fill with blue color
     all_sprites.draw(screen)
     display_score()
+    display_hp()
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 
