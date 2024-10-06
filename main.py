@@ -23,6 +23,13 @@ class Player(Sprite):
         if current_shot - self.last_shot > self.cooldown:
             self.can_shoot = True
         keys = pygame.key.get_pressed()
+        #chek for shot and fire
+        if(keys[pygame.K_SPACE] and self.can_shoot):
+            laser_fire = Laser(all_sprites, self.rect.centerx, self.rect.centery, image_laser)  # add new laser
+            laser_fire.fire()
+            self.last_shot = pygame.time.get_ticks()
+            self.can_shoot = False
+        #movment
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
         self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])  # y speed
         if (self.rect.bottom > window_height and self.direction.y > 0) or (
@@ -98,8 +105,6 @@ meteor_event = pygame.event.custom_type()
 pygame.time.set_timer(meteor_event, 1000)
 
 
-
-
 # game loop
 while running:
     dt = clock.tick(FPS_target) /1000
@@ -107,11 +112,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and player.can_shoot:  # fire laser - to recognize just one press and not holdown
-            laser_fire = Laser(all_sprites,player.rect.centerx,player.rect.centery,image_laser)# add new laser
-            laser_fire.fire()
-            player.last_shot = pygame.time.get_ticks()
-            player.can_shoot = False
         if event.type == meteor_event:
             meteor_new = Meteor(all_sprites,randint(0,window_width),0,image_meteor)
 
