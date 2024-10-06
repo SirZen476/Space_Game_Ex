@@ -17,6 +17,10 @@ class Player(Sprite):
         self.direction = pygame.math.Vector2()
         self.last_shot = 0.0
         self.cooldown = 250
+        self.score = 0
+
+    def addscore(self):
+        self.score +=100
 
     def update(self,dt):
         current_time = pygame.time.get_ticks()
@@ -24,7 +28,7 @@ class Player(Sprite):
         keys = pygame.key.get_pressed()
         #chek for shot and fire
         if(keys[pygame.K_SPACE] and interval> self.cooldown):# chack if pressed space and interval is right
-            laser_fire = Laser(all_sprites, self.rect.centerx, self.rect.centery, image_laser)  # add new laser
+            laser_fire = Laser((all_sprites,lasers_sprites), self.rect.centerx, self.rect.centery, image_laser)  # add new laser
             laser_fire.fire()#fire the laser - start movment
             self.last_shot = pygame.time.get_ticks()
         #movment
@@ -73,28 +77,44 @@ class Meteor(Sprite):
         if self.rect.top > window_height:
             self.kill()# kill if out of screen
 
+def Collisions():# returns true if no coll with meteor, false if coll with meteor detected, checks for coll for lasers with meteor, destroys both on hit
+    for laser in lasers_sprites:
+        if (pygame.sprite.spritecollide(laser, meteors_sprites, True)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
+            laser.kill()# delete laser
+            player.addscore()
+    if pygame.sprite.spritecollide(player, meteors_sprites, False):
+        return False
+    return True
+
 
 #general setup
-#pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
+pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
+
 window_width,window_height = 1280, 720 #screen size
 screen = pygame.display.set_mode((window_width,window_height))# create screen
 pygame.display.set_caption('Space Shooter')
 running = True
 clock =pygame.time.Clock()  # control framerate, control
 FPS_target = 99
-# create  Group
-all_sprites = pygame.sprite.Group()
-# add items to game
-image_laser = pygame.image.load('source_files/images/laser.png')
-laser = Laser(all_sprites,20,window_height-20,image_laser)
-# load image for stars and create stars
-image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
-for i in range(20):
-    star = Star(all_sprites,image_star)
-#load image for meteor
-image_meteor = pygame.image.load('source_files/images/meteor.png')
 
-player = Player(all_sprites)
+# sprites groups
+all_sprites = pygame.sprite.Group()
+lasers_sprites = pygame.sprite.Group()
+meteors_sprites = pygame.sprite.Group()
+font = pygame.font.Font(None, 50)
+score_surt =font.render('Score:', True,'white')
+# load images
+image_laser = pygame.image.load('source_files/images/laser.png')
+image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
+image_meteor = pygame.image.load('source_files/images/meteor.png')
+# create laser and stars sprite for display
+
+laser_view = Laser(all_sprites,20,window_height-20,image_laser)# for view on the side
+for i in range(20):
+    Star(all_sprites,image_star)
+#create player
+
+player = Player(all_sprites)# for ease of access
 
 #timers and events -> meteor event
 
@@ -110,16 +130,17 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == meteor_event:
-            meteor_new = Meteor(all_sprites,randint(0,window_width),0,image_meteor)
+            Meteor((all_sprites,meteors_sprites),randint(0,window_width),0,image_meteor)# add to both groups
 
     #update
     all_sprites.update(dt)
+    # collision detect:
+    running = Collisions()# check for coll
     #draw game
-
     screen.fill('black')#fill with blue color
     all_sprites.draw(screen)
+    screen.blit(score_surt,(0,0))
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
-
 
 
 pygame.quit()
