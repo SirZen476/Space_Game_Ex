@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added simple rotation for meteors">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -403,11 +402,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728207520771</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="added simple rotation for meteors">
+      <option name="closed" value="true" />
+      <created>1728208193620</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1728208193620</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made movment independent of FrameRate with delta time" />
     <MESSAGE value="implemented single key input" />
     <MESSAGE value="implemented mouse movment with pygames.mouse" />
     <MESSAGE value="implemented keyboard movement with pygame.keys" />
@@ -432,7 +438,8 @@
     <MESSAGE value="changed score visuals, added 10 points for meteor dodged" />
     <MESSAGE value="added mask to all classes (except star)" />
     <MESSAGE value="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pygame.sprite.collide_mask to collision with sprites to enhance collision detection to be pixel accurate" />
+    <MESSAGE value="added simple rotation for meteors" />
+    <option name="LAST_COMMIT_MESSAGE" value="added simple rotation for meteors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

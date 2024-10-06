@@ -76,6 +76,7 @@ class Meteor(Sprite):
         self.speed = 500
         self.direction = pygame.Vector2(uniform(-0.5,0.5),1)
         self.rotation = 0
+        self.rotation_rate = randint(40,100 )
 
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
@@ -83,8 +84,8 @@ class Meteor(Sprite):
             self.kill()# kill if out of screen
             player.addscore(10)
         # rotate meteor -
-        self.rotation  += 40*dt # *dt for same rotation on diffrent FPS
-        self.image = pygame.transform.rotate(self.OG_image, self.rotation)# set image as rotated one
+        self.rotation  += self.rotation_rate*dt # *dt for same rotation on diffrent FPS
+        self.image = pygame.transform.rotozoom(self.OG_image, self.rotation,1)# set image as rotated one
 
 class Explosion(Sprite):
     def __init__(self,groups,x,y,images):
