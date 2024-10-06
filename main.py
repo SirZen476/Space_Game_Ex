@@ -37,9 +37,9 @@ class Star(Sprite):
 
 
 class Laser(Sprite):
-    def __init__(self,groups ,x,y):
+    def __init__(self,groups ,x,y,image):
         super().__init__(groups)
-        self.image = pygame.image.load('source_files/images/laser.png')
+        self.image = image
         self.rect = self.image.get_rect(center = (x,y-20))
         self.speed = 0# when moving 800
         self.direction = pygame.math.Vector2(0,-1)# goes up only
@@ -47,6 +47,8 @@ class Laser(Sprite):
         self.speed = 700
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
+        if self.rect.top < 0:
+            self.kill()
 
 class Meteor(Sprite):
     def __init__(self,groups,x,y,image ):
@@ -58,9 +60,8 @@ class Meteor(Sprite):
         self.hp = 5
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
-
-
-
+        if self.rect.top > window_height:
+            self.kill()
 
 
 #general setup
@@ -74,12 +75,15 @@ FPS_target = 99
 # create  Group
 all_sprites = pygame.sprite.Group()
 # add items to game
-laser = Laser(all_sprites,20,window_height-20)
+image_laser = pygame.image.load('source_files/images/laser.png')
+laser = Laser(all_sprites,20,window_height-20,image_laser)
+
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
 for i in range(20):
     star = Star(all_sprites,image_star)
 image_meteor = pygame.image.load('source_files/images/meteor.png')
 meteor = Meteor(all_sprites,window_width/2,window_height/2, image_meteor)
+
 player = Player(all_sprites)
 
 
@@ -92,7 +96,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:  # fire laser - just one press
-            laser_fire = Laser(all_sprites,player.rect.centerx,player.rect.centery)
+            laser_fire = Laser(all_sprites,player.rect.centerx,player.rect.centery,image_laser)# add new laser
             laser_fire.fire()
 
     #update
