@@ -4,6 +4,7 @@ import random
 
 import pygame
 from Tools.scripts.dutree import display
+from fontTools.merge.util import current_time
 from sympy.core.random import randint
 from random import randint, uniform
 from pygame.sprite import Sprite
@@ -86,6 +87,11 @@ def Collisions():# returns true if no coll with meteor, false if coll with meteo
         return False
     return True
 
+def display_score():
+    score_surt = font.render('Score: '+ str(player.score), True, 'white')
+    score_rect = score_surt.get_rect(topleft = (0,0))
+    screen.blit(score_surt, score_rect)
+
 
 #general setup
 pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
@@ -101,8 +107,7 @@ FPS_target = 99
 all_sprites = pygame.sprite.Group()
 lasers_sprites = pygame.sprite.Group()
 meteors_sprites = pygame.sprite.Group()
-font = pygame.font.Font(None, 50)
-score_surt =font.render('Score:', True,'white')
+font = pygame.font.Font('source_files/images/Oxanium-Bold.ttf', 30)
 # load images
 image_laser = pygame.image.load('source_files/images/laser.png')
 image_star = pygame.image.load('source_files/images/star.png')# load before so we wont have to load 20 times the same image
@@ -139,7 +144,7 @@ while running:
     #draw game
     screen.fill('black')#fill with blue color
     all_sprites.draw(screen)
-    screen.blit(score_surt,(0,0))
+    display_score()
     pygame.display.update()# or flip - flip updates a part of the window , update the whole window
 
 

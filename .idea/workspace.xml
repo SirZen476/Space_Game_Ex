@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed cooldown for laser shot , changed meteor movment">
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added font and displaye of text, cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -355,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728201600337</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="added font and displaye of text, cleanup">
+      <option name="closed" value="true" />
+      <created>1728204719005</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1728204719005</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="loaded images" />
     <MESSAGE value="added 20 random stars on screen" />
     <MESSAGE value="added meteor and laser, made player go from left to right in loops" />
     <MESSAGE value="added 4 direction movment (random ) , added framerate(clock)" />
@@ -384,6 +391,7 @@
     <MESSAGE value="changed the way player shoots laser - now in update function of player class( with cooldown)" />
     <MESSAGE value="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again" />
     <MESSAGE value="changed cooldown for laser shot , changed meteor movment" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed cooldown for laser shot , changed meteor movment" />
+    <MESSAGE value="added font and displaye of text, cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="added font and displaye of text, cleanup" />
   </component>
 </project>
