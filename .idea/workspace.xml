@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed the way player shoots laser - now in update function of player class( with cooldown)" />
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -336,11 +339,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728200726266</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again">
+      <option name="closed" value="true" />
+      <created>1728201031191</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1728201031191</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed foldar name" />
     <MESSAGE value="loaded player image, made it move" />
     <MESSAGE value="loaded images" />
     <MESSAGE value="added 20 random stars on screen" />
@@ -365,6 +375,7 @@
     <MESSAGE value="changed laser class - gets in init the laser image (to not load over and over again), change update to remove from group of sprites if out of biunds, same for meteor" />
     <MESSAGE value="added cooldown to laser shot" />
     <MESSAGE value="changed the way player shoots laser - now in update function of player class( with cooldown)" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the way player shoots laser - now in update function of player class( with cooldown)" />
+    <MESSAGE value="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed can_shoot from player, changed how the check for rire checks (still same concept - useless to do a bool check and the save it hust ro check it again" />
   </component>
 </project>

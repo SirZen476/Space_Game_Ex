@@ -1,10 +1,11 @@
 #project was made with files from Clear code
 #https://github.com/clear-code-projects/5games
+import random
 
 import pygame
 from Tools.scripts.dutree import display
 from sympy.core.random import randint
-from random import randint
+from random import randint, uniform
 from pygame.sprite import Sprite
 
 class Player(Sprite):
@@ -15,16 +16,16 @@ class Player(Sprite):
         self.speed = 500
         self.direction = pygame.math.Vector2()
         self.last_shot = 0.0
-        self.cooldown = 400
+        self.cooldown = 250
 
     def update(self,dt):
         current_time = pygame.time.get_ticks()
         interval = current_time - self.last_shot
         keys = pygame.key.get_pressed()
         #chek for shot and fire
-        if(keys[pygame.K_SPACE] and interval> self.cooldown):
+        if(keys[pygame.K_SPACE] and interval> self.cooldown):# chack if pressed space and interval is right
             laser_fire = Laser(all_sprites, self.rect.centerx, self.rect.centery, image_laser)  # add new laser
-            laser_fire.fire()
+            laser_fire.fire()#fire the laser - start movment
             self.last_shot = pygame.time.get_ticks()
         #movment
         self.direction.x = (int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]))  # x speed is faster
@@ -57,21 +58,20 @@ class Laser(Sprite):
         self.speed = 700
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
-        if self.rect.top < 0:
-            self.kill()
+        if self.rect.bottom < 0:
+            self.kill()# kill sprite( remove from game
 
 class Meteor(Sprite):
     def __init__(self,groups,x,y,image ):
         super().__init__(groups)
         self.image = image
         self.rect = self.image.get_rect(center = (x,y))
-        self.speed = 300
-        self.direction = pygame.math.Vector2(0,1)
-        self.hp = 5
+        self.speed = 500
+        self.direction = pygame.Vector2(uniform(-0.5,0.5),1)
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
         if self.rect.top > window_height:
-            self.kill()
+            self.kill()# kill if out of screen
 
 
 #general setup
@@ -99,7 +99,7 @@ player = Player(all_sprites)
 #timers and events -> meteor event
 
 meteor_event = pygame.event.custom_type()
-pygame.time.set_timer(meteor_event, 1000)
+pygame.time.set_timer(meteor_event, 200)
 
 
 # game loop
