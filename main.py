@@ -102,11 +102,11 @@ class Explosion(Sprite):
 
 def Collisions():# returns true if no coll with meteor, false if coll with meteor detected, checks for coll for lasers with meteor, destroys both on hit
     for laser in lasers_sprites:
-        if (pygame.sprite.spritecollide(laser, meteors_sprites, True)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
+        if (pygame.sprite.spritecollide(laser, meteors_sprites, True, pygame.sprite.collide_mask)):# check if collision is happening with laser - empty list if no coll, deletes meteor that collided
             laser.kill()# delete laser
             player.addscore(100)
             Explosion(all_sprites, laser.rect.centerx, laser.rect.top, images_exp)
-    if pygame.sprite.spritecollide(player, meteors_sprites, False):
+    if pygame.sprite.spritecollide(player, meteors_sprites, False, pygame.sprite.collide_mask):
         return False
     return True
 

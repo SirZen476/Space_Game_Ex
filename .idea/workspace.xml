@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="changed score visuals, added 10 points for meteor dodged">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="425a8d4c-e023-4065-bde5-1e3909445004" name="Changes" comment="added mask to all classes (except star)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -386,11 +384,18 @@
       <option name="project" value="LOCAL" />
       <updated>1728207092179</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added mask to all classes (except star)">
+      <option name="closed" value="true" />
+      <created>1728207381666</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1728207381666</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed movment to vector" />
     <MESSAGE value="changed movement to dir and speed" />
     <MESSAGE value="made movment independent of FrameRate with delta time" />
     <MESSAGE value="implemented single key input" />
@@ -415,20 +420,16 @@
     <MESSAGE value="added score display" />
     <MESSAGE value="added explosion on hit(laser with meteor- imported 21 images, cycles and displays one at each frame)" />
     <MESSAGE value="changed score visuals, added 10 points for meteor dodged" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed score visuals, added 10 points for meteor dodged" />
+    <MESSAGE value="added mask to all classes (except star)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added mask to all classes (except star)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="3" />
+          <line>49</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
